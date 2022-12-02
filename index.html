@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Cipher</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="shorcut icon" href="https://i.pinimg.com/originals/c9/e4/24/c9e424183d53086ddccb37748cf87703.png">
+</head>
+<body>
+    <h1>Shift Cipher</h1>
+    <div id="main">
+        <label for="select">Choose a mode:</label><br>
+        <select name="select" id="select">
+            <option value="encrypt">encrypt</option>
+            <option value="decrypt">decrypt</option>
+        </select>
+        <div class="inputs">
+            <label for="word">Input a letter, word, or phrase:</label><br>
+            <input type="text" name="word" id="word" required>
+        </div>
+        <div class="inputs">
+            <label for="number" id="num">Input a shift number:</label><br>
+            <input type="number" name="number" id="number" min="0" max="26" required>
+        </div>
+        <input type="submit" value="Submit" id="submit">
+        <p id="returned"></p>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
