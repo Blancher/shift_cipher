@@ -13,7 +13,7 @@ document.getElementById('submit').addEventListener('click', () => {
     returnedString.push("The shift number can't be greater than 26.");
   }
   if (number < 0) {
-    returnedString.push("The shift number can't be negative");
+    returnedString.push("The shift number can't be negative.");
   }
   if (word != '' && number > 0 && number < 26) {
     number = parseInt(number);
