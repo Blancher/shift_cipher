@@ -15,7 +15,7 @@ document.getElementById('submit').addEventListener('click', () => {
   if (number < 0) {
     returnedString.push("The shift number can't be negative.");
   }
-  if (word != '' && number > 0 && number < 26) {
+  if (word != '' && number > 0 && number <= 26) {
     number = parseInt(number);
     if (mode == 'encrypt') {
       for (let i=0; i < word.length; i++) {
