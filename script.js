@@ -9,14 +9,14 @@ document.getElementById('submit').addEventListener('click', () => {
   if (word == '' || number == '') {
     returnedString.push('Please fill out all input fields before submitting.');
   }
-  if (number > 26) {
+  /*if (number > 26) {
     returnedString.push("The shift number can't be greater than 26.");
-  }
+  }*/
   if (number < 0) {
     returnedString.push("The shift number can't be negative.");
   }
   if (word != '' && number > -1 && number <= 26) {
-    number = parseInt(number);
+    number = parseInt(mathmod(number,26));
     if (mode == 'encrypt') {
       for (let i=0; i < word.length; i++) {
         if (!alphabet.includes(word[i].toUpperCase())) {
