@@ -5,36 +5,27 @@ document.getElementById('submit').addEventListener('click', () => {
   const returned = document.getElementById('returned');
   const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   let newString = '';
-  let returnedString = [];
-  if (word == '' || number == '') {
-    returnedString.push('Please fill out all input fields before submitting.');
+  let returnedArray = [];
+  if (word === '' || number === '') {
+    returnedArray.push('Please fill out all input fields before submitting.');
   }
   if (number > 26) {
-    returnedString.push("The shift number can't be greater than 26.");
+    returnedArray.push("The shift number can't be greater than 26.");
   }
   if (number < 0) {
-    returnedString.push("The shift number can't be negative.");
+    returnedArray.push("The shift number can't be negative.");
   }
-  if (word != '' && number > -1 && number <= 26) {
+  if (word !== '' && number >= 0 && number <= 26) {
     number = parseInt(number);
-    if (mode == 'encrypt') {
-      for (let i=0; i < word.length; i++) {
-        if (!alphabet.includes(word[i].toUpperCase())) {
-          newString += word[i];
-        } else if (alphabet.includes(word[i].toUpperCase())) {
-          newString += alphabet[alphabet.indexOf(word[i].toUpperCase()) + number];
-        }
-      }
-    } else if (mode == 'decrypt') {
-      for (let i=0; i < word.length; i++) {
-        if (!alphabet.includes(word[i].toUpperCase())) {
-          newString += word[i];
-        } else if (alphabet.includes(word[i].toUpperCase())) {
-          newString += alphabet[alphabet.lastIndexOf(word[i].toUpperCase()) - number];
-        }
+    const index = num => mode === 'encrypt' ? alphabet[alphabet.indexOf(word[num].toUpperCase()) + number] : alphabet[alphabet.lastIndexOf(word[num].toUpperCase()) - number];
+    for (let i=0; i < word.length; i++) {
+      if (alphabet.includes(word[i].toUpperCase())) {
+        newString += index(i);
+      } else {
+        newString += word[i];
       }
     }
-    returnedString.push(newString);
+    returnedArray.push(newString);
   }
-  returned.textContent = returnedString.join('');
+  returned.textContent = returnedArray.join('');
 });
