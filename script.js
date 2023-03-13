@@ -19,11 +19,7 @@ document.getElementById('submit').addEventListener('click', () => {
     number = parseInt(number);
     const index = num => mode === 'encrypt' ? alphabet[alphabet.indexOf(word[num].toUpperCase()) + number] : alphabet[alphabet.lastIndexOf(word[num].toUpperCase()) - number];
     for (let i=0; i < word.length; i++) {
-      if (alphabet.includes(word[i].toUpperCase())) {
-        newString += index(i);
-      } else {
-        newString += word[i];
-      }
+      newString += alphabet.includes(word[i].toUpperCase()) ? index(i) : word[i];
     }
     returnedArray.push(newString);
   }
