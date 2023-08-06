@@ -14,7 +14,7 @@ document.getElementById('submit').addEventListener('click', () => {
   if (+number < 0) {
     returnedArray.push("The shift number can't be negative.");
   }
-  if (word !== '' && number >= 0 && number <= 26) {
+  if (word !== '' && number !== '' && number >= 0 && number <= 26) {
     let newString = '';
     number = +number;
     const index = num => mode === 'encrypt' ? alphabet[alphabet.indexOf(word[num].toUpperCase()) + number] : alphabet[alphabet.lastIndexOf(word[num].toUpperCase()) - number];
